@@ -1,4 +1,4 @@
-# Heath's neovim config
+# my nvim config
 
 I've committed to using neovim as my main editor. So, we're sticking to this config for a long time.
 
@@ -11,7 +11,7 @@ I've committed to using neovim as my main editor. So, we're sticking to this con
 - [conform.nvim](https://github.com/stevearc/conform.nvim) - Formatting
 - [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 - [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
-- [oil.nvim](https://github.com/stevearc/oil.nvim)
+- [oil.nvim](https://github.com/stevearc/oil.nvim) - I tried nvim-tree, and i loved it a lot. but oil is a bit quicker, and i like how it handles file editing, creating, and deleting. 
 - [nvim-autopairs.nvim](https://github.com/windwp/nvim-autopairs)
-- [obsidian.nvim](https://github.com/epwalsh/obsidian.nvim)
+- [obsidian.nvim](https://github.com/epwalsh/obsidian.nvim) - I use Obsidian on my personal computers -- so this is a helpful addition to be able to traverse files in my vault.
 
