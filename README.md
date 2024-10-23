@@ -1,4 +1,4 @@
-# my nvim config
+# nvim config
 
 I've committed to using neovim as my main editor. So, we're sticking to this config for a long time.
 
