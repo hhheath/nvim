@@ -1,6 +1,10 @@
 return {
     workspaces = {
         {
+            name = "personal-notes",
+            path = "~/Documents/personal-notes",
+        },
+        {
             name = "edge-impulse",
             path = "~/Documents/edge-impulse",
         },
