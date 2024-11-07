@@ -59,3 +59,7 @@ vim.env.PATH = table.concat({ vim.fn.stdpath "data", "mason", "bin" }, sep) .. d
 -- readability in plaintext files
 opt.breakindent = true
 opt.linebreak = true
+
+-- spell check enabled by default
+opt.spelllang = "en_us"
+opt.spell = true
