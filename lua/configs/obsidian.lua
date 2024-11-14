@@ -16,6 +16,9 @@ return {
         -- You can always override this per image by passing a full path to the command instead of just a filename.
         img_folder = "Media",
     },
+    templates = {
+        folder = "Templates",
+    },
     ui = {
         enable = false, -- i literally just want the picker and pressing enter to take me to link
     },
