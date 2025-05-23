@@ -3,8 +3,8 @@
 I've committed to using neovim as my main editor. So, we're sticking to this config for a long time.
 
 - [lazy.nvim](https://github.com/folke/lazy.nvim)
-- [Catppuccin](https://github.com/catppuccin/nvim) - (for now)
 - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+- [OneDark Theme](https://github.com/navarasu/onedark.nvim)
 - [mason.nvim](https://github.com/williamboman/mason.nvim) && [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
 - [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - [nvim-cmp](http://github.com/hrsh7th/nvim-cmp)
