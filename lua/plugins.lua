@@ -62,20 +62,20 @@ return {
         end,
     },
 
-    {
-        "hrsh7th/nvim-cmp",
-        event = "InsertEnter",
-        dependencies = {
-            "saadparwaiz1/cmp_luasnip",
-            "hrsh7th/cmp-nvim-lua",
-            "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/cmp-buffer",
-            "hrsh7th/cmp-path",
-        },
-        opts = function()
-            return require "configs.cmp"
-        end,
-    },
+    -- {
+    --     "hrsh7th/nvim-cmp",
+    --     event = "InsertEnter",
+    --     dependencies = {
+    --         "saadparwaiz1/cmp_luasnip",
+    --         "hrsh7th/cmp-nvim-lua",
+    --         "hrsh7th/cmp-nvim-lsp",
+    --         "hrsh7th/cmp-buffer",
+    --         "hrsh7th/cmp-path",
+    --     },
+    --             config = function()
+    --         return require "configs.cmp"
+    --     end,
+    -- },
 
     -- quality of life stuff :)
     {
@@ -109,17 +109,17 @@ return {
         opts = require "configs.gitsigns",
     },
 
-    {
-        "windwp/nvim-autopairs",
-        event = "InsertEnter",
-        config = function()
-            require("nvim-autopairs").setup {
-                fast_wrap = {},
-                disable_filetype = { "TelescopePrompt", "vim" },
-            }
-
-            local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-            require("cmp").event:on("conform_done", cmp_autopairs.on_confirm_done())
-        end,
-    },
+    -- {
+    --     "windwp/nvim-autopairs",
+    --     event = "InsertEnter",
+    --     config = function()
+    --         require("nvim-autopairs").setup {
+    --             fast_wrap = {},
+    --             disable_filetype = { "TelescopePrompt", "vim" },
+    --         }
+    --
+    --         local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+    --         require("cmp").event:on("conform_done", cmp_autopairs.on_confirm_done())
+    --     end,
+    -- },
 }
