@@ -41,7 +41,7 @@ map("n", "<leader>x", "<Cmd>bd<CR>", { desc = "Close buffer" })
 
 -- Formatting
 map("n", "<leader>fm", function()
-    require("conform").format { lsp_fallback = true }
+    require("conform").format { lsp_fallback = false }
 end, { desc = "General Format file" })
 
 -- oil
