@@ -21,14 +21,20 @@ return {
     },
 
     {
-        "williamboman/mason.nvim",
+        "mason-org/mason.nvim",
         cmd = { "Mason", "MasonInstall", "MasonUpdate" },
         opts = require "configs.mason",
     },
 
     {
-        "williamboman/mason-lspconfig.nvim",
-        opts = require "configs.mason-lspconfig",
+        "mason-org/mason-lspconfig.nvim",
+        opts = function()
+            return require "configs.mason-lspconfig"
+        end,
+        dependencies = {
+            { "mason-org/mason.nvim", opts = {} },
+            "neovim/nvim-lspconfig",
+        },
     },
 
     {
