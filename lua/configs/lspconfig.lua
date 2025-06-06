@@ -1,7 +1,7 @@
 local M = {}
 local map = vim.keymap.set
 
--- export on_attach & capabilities
+-- Attach keymaps
 M.on_attach = function(client, bufnr)
     local opts = { buffer = bufnr }
 
@@ -17,15 +17,15 @@ M.on_attach = function(client, bufnr)
     map("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 end
 
--- disable semanticTokens
+-- Disable semantic tokens
 M.on_init = function(client, _)
     if client.supports_method "textDocument/semanticTokens" then
         client.server_capabilities.semanticTokensProvider = nil
     end
 end
 
+-- Capabilities
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
-
 M.capabilities.textDocument.completion.completionItem = {
     documentationFormat = { "markdown", "plaintext" },
     snippetSupport = true,
@@ -44,12 +44,50 @@ M.capabilities.textDocument.completion.completionItem = {
     },
 }
 
+-- Setup LSPs
 M.defaults = function()
-    require("lspconfig").lua_ls.setup {
-        on_attach = M.on_attach,
-        capabilities = M.capabilities,
-        on_init = M.on_init,
+    local lspconfig = require "lspconfig"
+
+    local servers = {
+        lua_ls = {
+            settings = {
+                Lua = {
+                    diagnostics = { globals = { "vim" } },
+                    workspace = { checkThirdParty = false },
+                },
+            },
+        },
+        pyright = {
+            settings = {
+                basedpyright = {
+                    analysis = {
+                        typeCheckingMode = "off",
+                        diagnosticMode = "openFilesOnly",
+                        autoSearchPaths = false,
+                        useLibraryCodeForTypes = false,
+                        stubPath = "typings",
+                        diagnosticSeverityOverrides = {
+                            reportGeneralTypeIssues = "none",
+                            reportMissingTypeStubs = "none",
+                            reportOptionalSubscript = "none",
+                            reportUnknownArgumentType = "none",
+                            reportUnknownMemberType = "none",
+                            reportUnknownParameterType = "none",
+                            reportUnknownVariableType = "none",
+                        },
+                    },
+                },
+            },
+        },
+        -- Add more servers and custom overrides here
     }
+
+    for name, config in pairs(servers) do
+        config.on_attach = M.on_attach
+        config.capabilities = M.capabilities
+        config.on_init = M.on_init
+        lspconfig[name].setup(config)
+    end
 end
 
 return M
