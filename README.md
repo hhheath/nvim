@@ -4,7 +4,7 @@ I've committed to using neovim as my main editor. So, we're sticking to this con
 
 - [lazy.nvim](https://github.com/folke/lazy.nvim)
 - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
-- [OneDark Theme](https://github.com/navarasu/onedark.nvim)
+- [Catppuccin Theme](https://github.com/catppuccin/nvim) - Mocha flavor
 - [mason.nvim](https://github.com/mason-org/mason.nvim) && [mason-lspconfig.nvim](https://github.com/mason-org/mason-lspconfig.nvim)
 - [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - [conform.nvim](https://github.com/stevearc/conform.nvim) - Formatting
