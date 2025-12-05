@@ -82,6 +82,13 @@ return {
             -- C-k: Toggle signature help (if signature.enabled = true)
             --
             -- See :h blink-cmp-config-keymap for defining your own keymap
+            enabled = function()
+                local path = vim.fn.expand "%:p"
+                if path:match "/root/personal%-notes/" then
+                    return false
+                end
+                return true
+            end,
             keymap = { preset = "default" },
 
             appearance = {
@@ -137,5 +144,23 @@ return {
     {
         "lewis6991/gitsigns.nvim",
         opts = require "configs.gitsigns",
+    },
+    {
+        "folke/zen-mode.nvim",
+        cmd = "ZenMode",
+        opts = {
+            window = {
+                width = 80,
+                options = {
+                    number = false,
+                    relativenumber = false,
+                    signcolumn = "no",
+                },
+            },
+            plugins = {
+                twilight = { enabled = false },
+                gitsigns = { enabled = false },
+            },
+        },
     },
 }

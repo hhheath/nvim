@@ -48,4 +48,7 @@ end, { desc = "General Format file" })
 map("n", "-", "<CMD>Oil<CR>", { desc = "open parent directory" })
 
 -- journaling
-vim.keymap.set('n', '<leader>j', ':r Templates/Journal.md<CR>', { desc = 'Insert journal template' })
+vim.keymap.set("n", "<leader>j", ":r Templates/Journal.md<CR>", { desc = "Insert journal template" })
+
+-- zen mode
+vim.keymap.set("n", "<leader>zz", "<cmd>ZenMode<cr>")
