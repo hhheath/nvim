@@ -1,4 +1,5 @@
--- why isn't this working?
+-- TODO: consider adding gitsigns keymaps for hunk navigation (]c/[c) and staging (<leader>hs)
+-- via an on_attach callback — see :h gitsigns-usage
 return {
     signs = {
         add = { text = "┃" },

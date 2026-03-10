@@ -12,12 +12,14 @@ M.on_attach = function(client, bufnr)
     map("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
     map("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
     map("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
+    -- TODO: consider adding diagnostic navigation mappings: [d / ]d (vim.diagnostic.goto_prev/next)
     map("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
     map({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
     map("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 end
 
--- Disable semantic tokens
+-- TODO: semantic tokens are disabled — if intentional (prefer treesitter-only highlighting), keep this;
+-- otherwise re-enabling gives richer highlighting for some languages (e.g. rust, typescript)
 M.on_init = function(client, _)
     if client.supports_method "textDocument/semanticTokens" then
         client.server_capabilities.semanticTokensProvider = nil
@@ -57,6 +59,10 @@ M.defaults = function()
                 },
             },
         },
+        -- TODO: pyright has type checking OFF and most diagnostics suppressed — consider either:
+        --   1. Switching to pylsp for a lighter-weight Python LSP
+        --   2. Setting typeCheckingMode to "basic" for useful warnings without the noise
+        --   3. If using basedpyright, the settings key should match ("basedpyright" not "pyright")
         pyright = {
             settings = {
                 basedpyright = {

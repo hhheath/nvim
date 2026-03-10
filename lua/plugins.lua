@@ -36,6 +36,7 @@ return {
         },
     },
 
+    -- TODO: consider adding telescope-fzf-native as a dependency for faster fuzzy finding
     {
         "nvim-telescope/telescope.nvim",
         dependencies = { "nvim-treesitter/nvim-treesitter" },

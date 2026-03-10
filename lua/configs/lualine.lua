@@ -10,6 +10,7 @@ local config = {
         },
         ignore_focus = {},
         always_divide_middle = true,
+        -- TODO: globalstatus is false but options.lua sets laststatus=3 (global statusline) — consider setting globalstatus = true here to match
         globalstatus = false,
         refresh = {
             statusline = 1000,
@@ -56,6 +57,7 @@ ins_left {
     -- Lsp server name .
     function()
         local msg = "No Active Lsp"
+        -- TODO: nvim_buf_get_option is deprecated — use vim.bo[0].filetype instead
         local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
         local clients = vim.lsp.get_clients()
         if next(clients) == nil then

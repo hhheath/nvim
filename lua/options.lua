@@ -49,6 +49,7 @@ g.loaded_python3_provider = 0
 g.loaded_perl_provider = 0
 g.loaded_ruby_provider = 0
 
+-- TODO: mason.nvim should handle PATH setup on its own — consider removing this manual PATH prepend
 -- add binaries installed by mason.nvim to path
 local is_windows = vim.fn.has "win32" ~= 0
 local sep = is_windows and "\\" or "/"
@@ -60,6 +61,8 @@ vim.env.PATH = table.concat({ vim.fn.stdpath "data", "mason", "bin" }, sep) .. d
 opt.breakindent = true
 opt.linebreak = true
 
+-- TODO: spell check is enabled globally — consider restricting to prose filetypes (markdown, text, gitcommit)
+-- via an autocommand instead of setting it globally, to avoid squiggles in code files
 -- spell check enabled by default
 opt.spelllang = "en_us"
 opt.spell = true

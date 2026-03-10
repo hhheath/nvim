@@ -1,3 +1,6 @@
+-- TODO: this file is dead code — LuaSnip is not in plugins.lua (blink.cmp has its own snippet engine).
+-- Safe to delete this file entirely.
+
 -- vscode format
 require("luasnip.loaders.from_vscode").lazy_load { exclude = vim.g.vscode_snippets_exclude or {} }
 require("luasnip.loaders.from_vscode").lazy_load { paths = vim.g.vscode_snippets_path or "" }
