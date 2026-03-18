@@ -3,6 +3,7 @@ local map = vim.keymap.set
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "General Clear highlights" })
 map("n", "<leader>n", "<cmd>set nu!<CR>", { desc = "Toggle line number" })
 
+-- TODO: <C-h> in insert mode shadows the default backspace behavior — consider an alternative key
 -- Movement
 -- in insert mode, hold control to move around
 map("i", "<C-b>", "<ESC>^i", { desc = "move beginning of line" })
@@ -27,15 +28,18 @@ map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { desc = "Grep text" })
 map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "List Buffers" })
 map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Find Help" })
 map("n", "<leader>ft", "<cmd>Telescope treesitter<CR>", { desc = "Treesitter" })
-map("n", "<leader>fd", "<cmd>Telescope lsp_document_diagnostics<CR>", { desc = "Document Diagnostics" })
+-- TODO: "lsp_document_diagnostics" is deprecated in Telescope — use "diagnostics" instead
+map("n", "<leader>fd", "<cmd>Telescope diagnostics<CR>", { desc = "Document Diagnostics" })
 map("n", "<leader>fr", "<cmd>Telescope lsp_references<CR>", { desc = "LSP References" })
 map("n", "<leader>fs", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "Document Symbols" })
 map("n", "<leader>fw", "<cmd>Telescope lsp_workspace_symbols<CR>", { desc = "Workspace Symbols" })
-map("n", "<leader>fl", "<cmd>Telescope lsp_code_actions<CR>", { desc = "Code Actions" })
+-- TODO: "lsp_code_actions" was removed from Telescope — use vim.lsp.buf.code_action() directly
+map("n", "<leader>fl", "<cmd>lua vim.lsp.buf.code_action()<CR>", { desc = "Code Actions" })
 
 -- Move to previous/next
 map("n", "<S-tab>", "<Cmd>bp<CR>", { desc = "Go to previous buffer" })
 map("n", "<tab>", "<Cmd>bn<CR>", { desc = "Go to next buffer" })
+-- TODO: consider adding a <leader>w mapping for quick save — very ergonomic with space leader
 -- delete buffer
 map("n", "<leader>x", "<Cmd>bd<CR>", { desc = "Close buffer" })
 

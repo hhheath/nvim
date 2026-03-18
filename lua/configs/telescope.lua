@@ -17,6 +17,8 @@ return {
     },
   },
 
+  -- TODO: "themes" and "terms" extensions are referenced but not installed — either install them or remove this
+  -- TODO: consider adding telescope-fzf-native for significantly faster fuzzy finding
   extensions_list = { "themes", "terms" },
   extensions = {},
 }

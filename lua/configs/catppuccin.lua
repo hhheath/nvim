@@ -33,6 +33,8 @@ return {
     color_overrides = {},
     custom_highlights = {},
     default_integrations = true,
+    -- TODO: cmp and nvimtree integrations are enabled but those plugins aren't installed
+    -- (using blink.cmp and oil.nvim instead) — swap for the correct integrations
     integrations = {
         cmp = true,
         gitsigns = true,

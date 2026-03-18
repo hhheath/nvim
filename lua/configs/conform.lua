@@ -1,3 +1,5 @@
+-- TODO: consider adding formatters for python (black/ruff), rust (rustfmt), and markdown (prettier)
+-- since those languages are in the treesitter ensure_installed list
 return {
   formatters_by_ft = {
     lua = { "stylua" },
