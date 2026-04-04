@@ -48,8 +48,6 @@ M.capabilities.textDocument.completion.completionItem = {
 
 -- Setup LSPs
 M.defaults = function()
-    local lspconfig = require "lspconfig"
-
     local servers = {
         lua_ls = {
             settings = {
@@ -88,12 +86,15 @@ M.defaults = function()
         -- Add more servers and custom overrides here
     }
 
+    local server_names = {}
     for name, config in pairs(servers) do
         config.on_attach = M.on_attach
         config.capabilities = M.capabilities
         config.on_init = M.on_init
-        lspconfig[name].setup(config)
+        vim.lsp.config(name, config)
+        table.insert(server_names, name)
     end
+    vim.lsp.enable(server_names)
 end
 
 return M
